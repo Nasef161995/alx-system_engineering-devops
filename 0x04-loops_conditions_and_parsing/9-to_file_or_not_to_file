@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # print Best School 10 times.
-filename="school"
-if [ -f "$filename" ]; then
+filename=school
+if [ -e "$filename" ]; then
     echo "school file exists"
     if [ -s "$filename" ]; then
         echo "school file is not empty"
