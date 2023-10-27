@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# print Best School 10 times.
+
 for item in *; do
     echo "$item"
 done

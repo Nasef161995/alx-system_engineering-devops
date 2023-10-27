@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# print Best School 10 times.
+# print clock
 
 i=0
 while [ $i -le 12 ]
