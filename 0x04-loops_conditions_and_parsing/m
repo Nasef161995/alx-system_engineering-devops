@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-for item in *; do
-    echo "$item"
-done
+a="abc-123"
+echo "$a" | cut -d'-' -f1
