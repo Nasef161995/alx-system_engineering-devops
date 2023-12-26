@@ -1,6 +1,6 @@
 #CLIENT CONFIGURATION FILE 
 Host server
-    HostName 52.3.148.114
+    HostName 100.25.35.119
     User ubuntu
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
