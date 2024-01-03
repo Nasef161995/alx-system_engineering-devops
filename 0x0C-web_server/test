@@ -1,0 +1,5 @@
+#connect to my server#
+ssh -i ~/.ssh/id_rsa ubuntu@100.25.35.119
+
+copy to file to the server 
+scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa <file name> ubuntu@100.25.35.119:~/
