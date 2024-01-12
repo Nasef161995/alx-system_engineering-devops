@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Configure your domain zone so that the subdomain www points to your load-balancer IP (lb-01). and write a Bash script that will display info and dubDom
+
+Info_ () {
+    dig +noall +answer "$1" | awk -v subdomain="$2" '{print "The subdomain", subdomain,"is a", $4 ,"record and points to",$5}'
+}
+
+if [ "$#" -eq 2 ]
+then
+    Info_ "$2.$1" "$2"
+else
+    Info_ "www.$1" "www"
+    Info_ "lb-01.$1" "lb-01"
+    Info_ "web-01.$1" "web-01"
+    Info_ "web-02.$1" "web-02"
+fi
