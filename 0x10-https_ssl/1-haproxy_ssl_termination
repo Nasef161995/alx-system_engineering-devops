@@ -35,7 +35,7 @@ defaults
 
 frontend frontEndPart
     bind *:80
-    bind *:443 ssl crt /etc/haproxy/certs/www.kholoudxs55kh.tech.pem
+    bind *:443 ssl crt /etc/haproxy/certs/www.mohamednasef.tech.pem
     http-request redirect scheme https unless { ssl_fc }
     mode http
     default_backend BackEndPart
@@ -47,5 +47,3 @@ backend BackEndPart
     server 347664-web-01 100.25.35.119:80 check
     server 347664-web-02 100.25.182.151:80 check
 
-backend letsencrypt-backend
-    server letsencrypt 127.0.0.1:54321
