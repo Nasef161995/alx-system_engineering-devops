@@ -16,6 +16,17 @@ if __name__ == "__main__":
     response = requests.get(link + sys.argv[1] + "/todos")
     data = response.json()
 
+    done_tasks = []
+    for task in data:
+        if task['completed'] is True:
+            done_tasks.append(task['title'])
+
+    done = len(done_tasks)
+    total = len(data)
+    print(f"Employee {name} is done with tasks({done}/{total}):")
+    for element in done_tasks:
+        print(f"\t {element}")
+
     filename = sys.argv[1] + ".csv"
     with open(filename, 'w', newline='') as csvfile:
         fileWriting = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
