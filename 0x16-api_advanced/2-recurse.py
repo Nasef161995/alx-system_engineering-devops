@@ -7,7 +7,7 @@ def recurse(subreddit, hot_list=[], after=None):
     """ returns a list containing the titles of all hot articles"""
 
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?after={after}"
-    res = requests.get(url, headers={'User-Agent': 'abeer'})
+    res = requests.get(url, headers={'User-Agent': 'mohamed'})
 
     if res.status_code != 200:
         return None
