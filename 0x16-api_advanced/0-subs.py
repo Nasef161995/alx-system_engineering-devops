@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-"""requests number of subscribers  """
-import re
+"""function queries the Reddit API"""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """returns the number of subscribers"""
+    """function queries the Reddit API and returns the number of subscribers"""
 
-    url = f"https://www.reddit.com/r/{subreddit}/about/"
-    res = requests.get(url)
-    html = res.text
-    pattern = r'subscribers="([^"]*)"'
-    subscribers = re.search(pattern, html)
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {"User-Agent": "My Reddit API Client"}
 
-    if subscribers:
-        return int(subscribers[0][13:-1])
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        subscribers = data["data"]["subscribers"]
+        return subscribers
     else:
         return 0

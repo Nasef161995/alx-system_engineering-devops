@@ -1,18 +1,22 @@
 #!/usr/bin/python3
-"""request top ten posts of a subreddit"""
+"""function that queries the Reddit API"""
 import requests
 
 
 def top_ten(subreddit):
-    """returns the top ten posts of a subreddit"""
+    """function that queries the Reddit API"""
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    # Provide a descriptive User-Agent header
+    headers = {"User-Agent": "My Reddit API Client"}
 
-    url = f"https://www.reddit.com/r/{subreddit}/top.json?limit=10"
-    res = requests.get(url, headers={'User-Agent': 'mohamed'})
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
-    if res.status_code != 200:
-        print(None)
-        return
+    if response.status_code == 200:
+        data = response.json()
+        posts = data["data"]["children"]
 
-    top = res.json()
-    for post in top['data']['children']:
-        print(post['data']['title'])
+        for post in posts:
+            title = post["data"]["title"]
+            print(title)
+    else:
+        print("None")
